@@ -1,0 +1,4 @@
+:concurrency: 40
+:queues:
+  - default
+  - big_binary

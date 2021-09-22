@@ -50,3 +50,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "hotwire-rails", "~> 0.1.3"
 
 gem "httparty", "~> 0.19.0"
+
+gem "sidekiq", "~> 6.2"
+
+gem "sidekiq-cron", "~> 1.2"

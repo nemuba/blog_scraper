@@ -1,0 +1,4 @@
+my_first_job:
+  cron: "1 1 * * *"
+  class: "BigBinary::Get"
+  queue: big_binary
