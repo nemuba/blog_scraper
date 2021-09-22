@@ -1,0 +1,24 @@
+<div class="card m-5">
+  <div class="card-header">
+    <h5 class="card-title">BlogScraper - Lista de Posts do blog BigBinary</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-6">
+        <%= turbo_stream_from :tags %>
+        <%= turbo_frame_tag :tags do %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item active">
+              Categorias
+            </li>
+            <%= render @tags %>
+          </ul>
+        <% end %>
+      </div>
+
+      <div class="col-6 posts">
+        <%= turbo_frame_tag :posts, src: posts_list_url(@tags.sample), loading: 'lazy' if @tags.present? %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<%= turbo_frame_tag dom_id(post) do %>
+  <div class="card mt-1">
+    <div class="card-body">
+      <h5><%= post.title  %> - <a href="<%= post.link %>" target="_blank">Ler post</a></h5>
+    </div>
+  </div>
+<% end %>
