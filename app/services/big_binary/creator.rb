@@ -4,10 +4,11 @@
 module BigBinary
   # Service creator for BigBinary
   class Creator
-    attr_accessor :tags
+    attr_accessor :tags, :site
 
     def initialize
       @tags = ::Scrapers::Tags.new.list
+      @site = ::Site.find_or_create_by(name: 'BigBinary', link: 'https://bigbinary.com')
     end
 
     def self.call
@@ -25,7 +26,7 @@ module BigBinary
 
     def find_or_create_tags!
       tags.each do |tag|
-        ::Tag.find_or_create_by!(tag)
+        ::Tag.find_or_create_by!(site_id: site.id, **tag)
       end
     end
 

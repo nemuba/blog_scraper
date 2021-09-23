@@ -3,6 +3,7 @@ class Tag < ApplicationRecord
   validates :name, presence: true
 
   has_many :posts
+  belongs_to :site
 
   after_create_commit { broadcast_append_to :tags }
   after_update_commit { broadcast_replace_to :tags }

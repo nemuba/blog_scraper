@@ -24,12 +24,22 @@ ActiveRecord::Schema.define(version: 2021_09_22_001019) do
     t.index ["tag_id"], name: "index_posts_on_tag_id"
   end
 
-  create_table "tags", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "link", null: false
+  create_table "sites", force: :cascade do |t|
+    t.string "name"
+    t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "link", null: false
+    t.bigint "site_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["site_id"], name: "index_tags_on_site_id"
+  end
+
   add_foreign_key "posts", "tags"
+  add_foreign_key "tags", "sites"
 end

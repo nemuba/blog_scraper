@@ -1,7 +1,10 @@
 <%= turbo_frame_tag dom_id(post) do %>
-  <div class="card mt-1">
+  <div class="card mt-2">
     <div class="card-body">
-      <h5><%= post.title  %> - <a href="<%= post.link %>" target="_blank">Ler post</a></h5>
+      <h5>Post - <%= post.title  %> - <a href="<%= post.link %>" target="_blank">Ler post</a></h5>
+    </div>
+    <div class="card-footer">
+      Criado em <%= post.created_at.strftime('%d/%m/%Y') %>
     </div>
   </div>
 <% end %>

@@ -1,6 +1,5 @@
 <%= turbo_frame_tag dom_id(tag) do %>
-  <li class="list-group-item">
-    <%= tag.name %> - 
-    <%= link_to 'Ver posts', posts_list_url(tag_id: tag.id), 'data-turbo-frame': 'posts' %>
+  <li >
+    <a class="dropdown-item" href="<%= posts_path(tag_id: tag.id) %>" data-turbo-frame='posts'><%= tag.name %></a>
    </li>
 <% end %>

@@ -1,0 +1,12 @@
+
+<%= turbo_frame_tag dom_id(site) do %>
+  <div class="carousel-item active">
+    <img src="http://placehold.jp/6c757d/ffffff/800x300.png?text=<%= site.name %>" class="d-block w-100" alt="...">
+    <div class="carousel-caption d-none d-md-block">
+      <h5><%= site.name %></h5>
+      <a class="btn btn-outline-dark text-white" href="<%= site.link %>">Clique para saber mais sobre o blog  ...</a>
+      <br>
+      <%= link_to 'Ver posts', posts_path(site_name: site.name), 'data-turbo-frame': '_top' %>
+    </div>
+  </div>
+<% end %>

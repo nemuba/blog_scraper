@@ -1,4 +1,4 @@
-my_first_job:
+big_binary_scraper:
   cron: "1 1 * * *"
   class: "BigBinary::Get"
   queue: big_binary

@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @tags = Tag.all
-    @posts = Post.all
+    @sites = Site.all
   end
 end

@@ -54,3 +54,5 @@ gem "httparty", "~> 0.19.0"
 gem "sidekiq", "~> 6.2"
 
 gem "sidekiq-cron", "~> 1.2"
+
+gem "solargraph", "~> 0.43.1", :groups => [:development, :teste]
