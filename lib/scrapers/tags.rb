@@ -11,12 +11,15 @@ module Scrapers
     base_uri 'https://www.bigbinary.com'
     parser Scrapers::Utils::HtmlParser
 
+    attr_accessor :base_url, :parse, :categories
+
+    def initialize
+      @base_url = self.class.default_options[:base_uri]
+      @parse = self.class.get('/blog/categories')
+      @categories = parse.css('.page>ul>div')
+    end
+
     def list
-      base_url = self.class.default_options[:base_uri]
-      parse = self.class.get('/blog/categories')
-
-      categories = parse.css('.page>ul>div')
-
       categories.map do |div|
         category = div.css('a>div')
 

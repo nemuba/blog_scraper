@@ -4,7 +4,7 @@
       <h5>Post - <%= post.title  %> - <a href="<%= post.link %>" target="_blank">Ler post</a></h5>
     </div>
     <div class="card-footer">
-      Criado em <%= post.created_at.strftime('%d/%m/%Y') %>
+      <%= post.description %>
     </div>
   </div>
 <% end %>

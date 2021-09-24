@@ -1,3 +1,5 @@
+<%= turbo_stream_from :sites %>
+
 <%= render 'shared/carrousel' do %>
   <%= turbo_frame_tag :sites do %>
     <%= render @sites %>

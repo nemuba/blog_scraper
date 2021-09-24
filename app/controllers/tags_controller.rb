@@ -4,7 +4,7 @@ class TagsController < ApplicationController
   before_action :set_site
 
   def index
-    @tags = @site.tags
+    @tags ||= @site.tags
   end
 
   private

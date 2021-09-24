@@ -33,7 +33,7 @@ module BigBinary
     def find_create_posts_by_tags!
       tags.each do |tag|
         tag = ::Tag.find_by(tag)
-        posts = ::Scrapers::Posts.new.list(tag[:link])
+        posts = ::Scrapers::Posts.new(tag[:link]).list
 
         find_or_create_posts!(tag, posts)
       end
