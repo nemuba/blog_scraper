@@ -1,15 +1,15 @@
 <%= turbo_frame_tag :posts do %>
   <div class="card mt-3">
     <div class="card-header bg-white">
-      <h3 class="card-title">Posts</h3>
+      <h3 class="card-title"><%= @site.name %> - Posts (<%= @site.posts.size %>)</h3>
     </div>
-    <div class="card-body">
-    <div class="row align-items-start">
+    <div class="card-body post_list">
+      <div class="row align-items-start">
         <div class="col-2">
-          <%= link_to 'Listar tudo', posts_path(site_name: params[:site_name]), 'data-turbo-frame': 'posts', class: 'btn btn-primary bnt-sm' %>
+           <%= link_to 'Listar tudo', site_posts_url(params[:site_site_name]), 'data-turbo-frame': 'posts', class: 'btn btn-primary btn-sm' %>
         </div>
         <div class="col-2">
-          <%= turbo_frame_tag :tags, src: tags_path(site_name: params[:site_name]), loading: 'lazy' %>
+          <%= turbo_frame_tag :tags, src: site_tags_url(params[:site_site_name]) %>
         </div>
         <div class="col-8"></div>
       </div>

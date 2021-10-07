@@ -1,7 +1,7 @@
 <%= turbo_frame_tag dom_id(tag) do %>
   <li >
-    <a class="dropdown-item" href="<%= posts_path(tag_id: tag.id) %>" data-turbo-frame='posts'>
-      <%= tag.name %>
+    <a class="dropdown-item" href="<%= site_posts_path(site_site_name: tag.site.name, tag_id: tag.id) %>" data-turbo-frame='posts'>
+      <%= tag.name %> - <%= tag.posts.size %>
     </a>
   </li>
 <% end %>

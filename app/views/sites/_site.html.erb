@@ -6,7 +6,7 @@
       <h5><%= site.name %></h5>
       <a class="btn btn-outline-dark text-white" href="<%= site.link %>">Clique para saber mais sobre o blog  ...</a>
       <br>
-      <%= link_to 'Ver posts', posts_path(site_name: site.name), 'data-turbo-frame': '_top' %>
+      <%= link_to 'Ver posts', site_path(site_name: site.name), 'data-turbo-frame': '_top' %>
     </div>
   </div>
 <% end %>

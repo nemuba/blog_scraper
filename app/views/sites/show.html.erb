@@ -1,0 +1,5 @@
+<%= turbo_stream_from @site %>
+
+<%= turbo_frame_tag dom_id(@site) do %>
+  <%= turbo_frame_tag :posts, src: site_posts_path(@site.name), loading: "lazy" %>
+<% end %>

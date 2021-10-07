@@ -4,12 +4,13 @@ require 'sidekiq/web'
 require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
-  get 'tags/index'
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'welcome#index'
+  root 'sites#index'
 
-  get 'blog/:site_name/posts', to: 'posts#index', as: 'posts'
-  get 'blog/:site_name/tags', to: 'tags#index', as: 'tags'
+  resources :sites, only: %i[index show], param: :site_name do
+    resources :tags, only: %i[index]
+    resources :posts, only: %i[index]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

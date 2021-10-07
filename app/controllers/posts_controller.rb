@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# PostsController: Controller for Posts
 class PostsController < ApplicationController
   before_action :set_site
 
@@ -14,6 +15,6 @@ class PostsController < ApplicationController
   private
 
   def set_site
-    @site = Site.includes(:tags, :posts).find_by(name: params[:site_name])
+    @site = Site.includes(:tags, :posts).find_by(name: params[:site_site_name])
   end
 end
